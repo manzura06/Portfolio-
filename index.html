@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mo‘sinova Manzura — Portfolio</title>
+  <meta name="description" content="Mo‘sinova Manzura Zokirjon qizi — talaba va matematika o‘qituvchisi. Shaxsiy portfolio / personal portfolio.">
+  <meta name="theme-color" content="#0f1a3d">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    /* Tema va tilni sahifa chizilishidan oldin o'rnatish (miltillashsiz) */
+    (function () {
+      var theme = null, lang = null;
+      try { theme = localStorage.getItem('theme'); lang = localStorage.getItem('lang'); } catch (e) {}
+      if (!theme) theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'uz');
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Asosiy mazmunga o‘tish</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a class="logo" href="#top" aria-label="Manzura">M<span>.</span></a>
+
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#about" data-i18n="nav_about">Haqida</a>
+      <a href="#skills" data-i18n="nav_skills">Ko‘nikmalar</a>
+      <a href="#experience" data-i18n="nav_exp">Tajriba</a>
+      <a href="#education" data-i18n="nav_edu">Ta’lim</a>
+      <a href="#achievements" data-i18n="nav_ach">Yutuqlar</a>
+      <a href="#contact" data-i18n="nav_contact">Aloqa</a>
+    </nav>
+
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" data-lang="uz" aria-pressed="true">UZ</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle theme" data-i18n-aria="theme">
+        <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <canvas id="wave" aria-hidden="true"></canvas>
+
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="greet" data-i18n="hero_greet">Salom, men</p>
+          <h1 class="name">
+            <span class="name-a">Manzura</span>
+            <span class="name-b">Mo‘sinova</span>
+          </h1>
+          <p class="role" data-i18n="hero_role">Talaba va matematika o‘qituvchisi</p>
+          <p class="lead" data-i18n="hero_lead">Farg‘ona Davlat Texnika Universitetida axborot tizimlari va texnologiyalari yo‘nalishida o‘qiyman va o‘quv markazida o‘quvchilarga matematikadan dars beraman.</p>
+
+          <div class="cta">
+            <a class="btn btn-fill" href="#contact" data-i18n="hero_cta1">Bog‘lanish</a>
+            <a class="btn btn-line" href="#experience" data-i18n="hero_cta2">Tajribamni ko‘rish</a>
+          </div>
+
+          <p class="readout" aria-hidden="true"><span id="formula">f(x) = 1.0·sin(2.0x)</span></p>
+        </div>
+
+        <figure class="portrait">
+          <div class="arch arch-back"></div>
+          <div class="arch arch-front">
+            <img src="images/manzura.png" alt="Manzura Mo‘sinova" width="941" height="1672" fetchpriority="high">
+          </div>
+          <span class="chip chip-a" data-i18n="chip_math">Matematika</span>
+          <span class="chip chip-b" data-i18n="chip_it">Axborot texnologiyalari</span>
+          <span class="chip chip-c" data-i18n="chip_ai">Sun’iy intellekt fakulteti</span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="wrap split">
+        <h2 class="sec-title" data-i18n="about_title">Mantiq bilan o‘rgataman, kod bilan yarataman.</h2>
+        <div class="sec-body about-body">
+          <p data-i18n="about_text">Matematika o‘qituvchisi sifatida o‘quvchilarning mantiqiy fikrlash qobiliyatini rivojlantiraman. Talaba sifatida esa axborot texnologiyalari va sun’iy intellekt fakultetida bilim va amaliy ko‘nikmalarimni oshirib boraman.</p>
+
+          <div class="venn" role="img" aria-label="Matematika va axborot texnologiyalari kesishmasi">
+            <div class="circle c1"><span data-i18n="venn_a">Matematika</span></div>
+            <div class="circle c2"><span data-i18n="venn_b">Axborot texnologiyalari</span></div>
+            <div class="overlap"><span data-i18n="venn_c">Mantiqiy fikrlash</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="wrap split">
+        <h2 class="sec-title" data-i18n="skills_title">Ko‘nikmalar</h2>
+        <div class="sec-body">
+          <div class="skill-group">
+            <h3 data-i18n="sk_code">Dasturlash</h3>
+            <ul class="tags">
+              <li class="tag tag-big">C++</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 data-i18n="sk_tools">Vositalar</h3>
+            <ul class="tags">
+              <li class="tag">Google Colab</li>
+              <li class="tag">Microsoft Word</li>
+              <li class="tag">PowerPoint</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 data-i18n="sk_general">Umumiy</h3>
+            <ul class="tags">
+              <li class="tag" data-i18n="sk_computer">Kompyuter texnologiyalari</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="wrap split">
+        <h2 class="sec-title" data-i18n="exp_title">Ish tajribasi</h2>
+        <div class="sec-body">
+          <ol class="timeline">
+            <li class="t-item">
+              <p class="t-date" data-i18n="exp_date">26.06.2026 – Hozirgi vaqt</p>
+              <h3 class="t-head">“Birlashamiz” <span data-i18n="exp_center">o‘quv markazi</span></h3>
+              <p class="t-sub"><span data-i18n="exp_role">Matematika o‘qituvchisi</span> — <span data-i18n="exp_place">Farg‘ona</span></p>
+              <ul class="t-list">
+                <li data-i18n="exp_b1">O‘quvchilarga matematika fanidan dars berish va ularning mantiqiy fikrlash qobiliyatini rivojlantirish.</li>
+                <li data-i18n="exp_b2">Dars jarayonlarini zamonaviy metodikalar asosida tashkil etish va o‘quvchilar natijalarini nazorat qilish.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section" id="education">
+      <div class="wrap split">
+        <h2 class="sec-title" data-i18n="edu_title">Ta’lim</h2>
+        <div class="sec-body">
+          <ol class="timeline">
+            <li class="t-item">
+              <p class="t-date" data-i18n="edu_date">09.09.2024 – Hozirda (talaba)</p>
+              <h3 class="t-head" data-i18n="edu_school">Farg‘ona Davlat Texnika Universiteti</h3>
+              <p class="t-sub" data-i18n="edu_degree">Bakalavr</p>
+              <dl class="facts">
+                <div><dt data-i18n="edu_fac_l">Fakultet</dt><dd data-i18n="edu_fac">Axborot texnologiyalari va sun’iy intellekt</dd></div>
+                <div><dt data-i18n="edu_dir_l">Yo‘nalish</dt><dd data-i18n="edu_dir">Axborot tizimlari va texnologiyalari (Bakalavr)</dd></div>
+              </dl>
+              <ul class="t-list">
+                <li data-i18n="edu_b1">O‘quv jarayonida akademik va amaliy tadbirlarda faol ishtirok etganman.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ACHIEVEMENTS ============ -->
+    <section class="section" id="achievements">
+      <div class="wrap split">
+        <h2 class="sec-title" data-i18n="ach_title">Yutuqlar</h2>
+        <div class="sec-body ach">
+          <p class="ach-item" data-i18n="ach_1">Sertifikatlar bilan taqdirlanganman.</p>
+          <p class="ach-item" data-i18n="ach_2">O‘quv jarayonida turli tadbirlarda ishtirok etib, bilim va ko‘nikmalarimni rivojlantirdim.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact-sec" id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <h2 class="c-title" data-i18n="contact_title">Keling, gaplashamiz.</h2>
+          <a class="c-mail" id="mail" href="mailto:mosinovamanzura1@gmail.com">mosinovamanzura1@gmail.com</a>
+
+          <div class="c-row">
+            <a class="c-link" href="tel:+998912857780">
+              <small data-i18n="contact_phone">Telefon</small>
+              <span>(+998) 91 285-77-80</span>
+            </a>
+            <div class="c-link">
+              <small data-i18n="contact_addr">Manzil</small>
+              <span data-i18n="contact_addr_v">Farg‘ona viloyati, Marg‘ilon shahar, 41-uy</span>
+            </div>
+            <button class="c-copy" id="copyBtn" type="button" data-i18n="contact_copy">Emailni nusxalash</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year">2026</span> Mo‘sinova Manzura Zokirjon qizi</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
